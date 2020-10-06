@@ -8,6 +8,7 @@ resources = gnome.compile_resources(
     c_name: 'as'
 )
 
+
 subdir('data')
 subdir('src')
 

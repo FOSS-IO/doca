@@ -14,13 +14,13 @@ namespace Doca.Widgets {
             title = PROJECT_NAME;
             show_close_button = true;
 
-            var add_button = new Gtk.Button.with_label ("Add");
-            add_button.get_style_context ().add_class ("suggested-action");
-            add_button.valign = Gtk.Align.CENTER;
+            //  var add_button = new Gtk.Button.with_label ("Add");
+            //  add_button.get_style_context ().add_class ("suggested-action");
+            //  add_button.valign = Gtk.Align.CENTER;
 
-            add_button.clicked.connect(open_dialog);
+            //  add_button.clicked.connect(open_dialog);
 
-            pack_start (add_button);
+            //  pack_start (add_button);
 
             mode_switch = new Granite.ModeSwitch.from_icon_name ("display-brightness-symbolic", "weather-clear-night-symbolic");
             mode_switch.primary_icon_tooltip_text = "Light background";
@@ -42,7 +42,7 @@ namespace Doca.Widgets {
 
             pack_end (menu_button);
 
-            pack_end (mode_switch);
+            //  pack_end (mode_switch);
         }
 
         public void open_dialog () {

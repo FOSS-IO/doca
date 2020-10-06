@@ -2,6 +2,8 @@ namespace Doca.Widgets {
 
     public class Paned : Gtk.Paned {
         public weak Window window { get; construct; }
+        public Welcome welcome;
+        public ContainerList list;
 
         public Paned (Window main_window) {
             Object (
@@ -13,19 +15,16 @@ namespace Doca.Widgets {
         construct {
             position = 260;
 
+            //SIDEBAR
             var sidebar = new Gtk.Stack ();
-            var label = new Gtk.Label ("teste");
-
-            var main = new Gtk.Stack ();
-
-            var welcome = new Doca.Widgets.Welcome (window);
-
-
-            sidebar.add_named(label, "label");
-
-            main.add_named(welcome, "welcome");
-
+            list = new ContainerList (window);
+            sidebar.add_named(list, "list");
             pack1 (sidebar, false, false);
+
+            //MAIN
+            var main = new Gtk.Stack ();
+            welcome = new Welcome (window);
+            main.add_named(welcome, "welcome");
             pack2 (main, true, false);
         }
     }
