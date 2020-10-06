@@ -33,7 +33,8 @@ public class Main {
             print (@"$entry\n");
         });
 
-        return 0;
+        var app = new Doca.Application ();
+        return app.run (args);
     }
 
 }
