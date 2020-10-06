@@ -1,5 +1,41 @@
 public class DockerEngineApi : Object, IDockerEngineApi {
 
+    public new bool is_daemon_installed () {
+        string stdout;
+
+        try {
+            GLib.Process.spawn_command_line_sync ("which docker", out stdout);
+
+            return !stdout.contains("not found");
+        } catch (SpawnError e) {
+            error ("Error: %s\n", e.message);
+        }
+    }
+
+    public new bool is_daemon_enabled () {
+        string stdout;
+
+        try {
+            GLib.Process.spawn_command_line_sync ("systemctl is-enabled docker.service", out stdout);
+
+            return stdout.contains("enabled");
+        } catch (SpawnError e) {
+            error ("Error: %s\n", e.message);
+        }
+    }
+
+    public new bool is_daemon_active () {
+        string stdout;
+
+        try {
+            GLib.Process.spawn_command_line_sync ("systemctl is-active docker.service", out stdout);
+
+            return stdout.contains("active");
+        } catch (SpawnError e) {
+            error ("Error: %s\n", e.message);
+        }
+    }
+
     public new List<Image> list_all_images () {
         string stdout;
         List<Image> images = new List<Image> ();

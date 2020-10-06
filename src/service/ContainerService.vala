@@ -6,7 +6,19 @@ public class ContainerService : Object, IContainerService {
         dockerEngineApi = new DockerEngineApi ();
     }
 
-    public new List<Container> list_all_containers () { 
+    public new bool is_daemon_installed () {
+        return dockerEngineApi.is_daemon_installed ();
+    }
+
+    public new bool is_daemon_enabled () {
+        return dockerEngineApi.is_daemon_enabled ();
+    }
+
+    public new bool is_daemon_active () {
+        return dockerEngineApi.is_daemon_active ();
+    }
+
+    public new List<Container> list_all_containers () {
         return new List<Container> ();
     }
 

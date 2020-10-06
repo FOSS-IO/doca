@@ -1,7 +1,19 @@
 public class Main {
-    
+
     public static int main (string[] args) {
         IContainerService containerService = new ContainerService ();
+
+        var is_installed = containerService.is_daemon_installed ();
+        message ("============ IS INSTALLED ============");
+        print (@"$is_installed\n");
+
+        var is_enabled = containerService.is_daemon_enabled ();
+        message ("============ IS ENABLED ============");
+        print (@"$is_enabled\n");
+
+        var is_active = containerService.is_daemon_active ();
+        message ("============ IS ACTIVE ============");
+        print (@"$is_active\n");
 
         var images = containerService.list_all_images ();
         message ("============ IMAGES ============");
