@@ -20,8 +20,11 @@ namespace Doca.Widgets {
             var label2 = new Gtk.Label ("teste2");
 
 
+            var welcome = new Doca.Widgets.Welcome (window);
+
+
             sidebar.add_named(label, "label");
-            main.add_named(label2, "asd");
+            main.add_named(welcome, "welcome");
 
             pack1 (sidebar, false, false);
             pack2 (main, true, false);
