@@ -1,41 +1,54 @@
-public class ContainerService : Object, IContainerService {
+using Doca.Entity;
+using Doca.DockerApi;
+using Doca.DockerApi.Adapter;
+using Doca.Service.Adapter;
 
-    public IDockerEngineApi dockerEngineApi { get; private set; }
+namespace Doca.Service {
 
-    construct {
-        dockerEngineApi = new DockerEngineApi ();
-    }
+    public class ContainerService : Object, IContainerService {
 
-    public new bool is_daemon_installed () {
-        return dockerEngineApi.is_daemon_installed ();
-    }
+        public IDockerEngineApi dockerEngineApi { get; private set; }
 
-    public new bool is_daemon_enabled () {
-        return dockerEngineApi.is_daemon_enabled ();
-    }
+        construct {
+            dockerEngineApi = new DockerEngineApi ();
+        }
 
-    public new bool is_daemon_active () {
-        return dockerEngineApi.is_daemon_active ();
-    }
+        public new bool is_daemon_installed () {
+            return dockerEngineApi.is_daemon_installed ();
+        }
 
-    public new bool is_current_user_in_docker_group () {
-        return dockerEngineApi.is_current_user_in_docker_group ();
-    }
+        public new bool is_daemon_enabled () {
+            return dockerEngineApi.is_daemon_enabled ();
+        }
 
-    public new List<Container> list_all_containers () {
-        return new List<Container> ();
-    }
+        public new bool is_daemon_active () {
+            return dockerEngineApi.is_daemon_active ();
+        }
 
-    public new List<Image> list_all_images () {
-        return dockerEngineApi.list_all_images ();
-    }
+        public new bool is_current_user_in_docker_group () {
+            return dockerEngineApi.is_current_user_in_docker_group ();
+        }
 
-    public new List<Process> list_all_processes () {
-        return dockerEngineApi.list_all_processes ();
-    }
+        public new void install_docker () {
+            dockerEngineApi.install_docker ();
+        }
 
-    public new List<Stats> list_all_stats () {
-        return dockerEngineApi.list_all_stats ();
+        public new List<Container> list_all_containers () {
+            return new List<Container> ();
+        }
+
+        public new List<Image> list_all_images () {
+            return dockerEngineApi.list_all_images ();
+        }
+
+        public new List<Entity.Process> list_all_processes () {
+            return dockerEngineApi.list_all_processes ();
+        }
+
+        public new List<Stats> list_all_stats () {
+            return dockerEngineApi.list_all_stats ();
+        }
+
     }
 
 }

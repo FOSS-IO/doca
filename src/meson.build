@@ -41,9 +41,10 @@ executable(
     widget_files,
     utils_files,
     dependencies: [
-        dependency('gtk+-3.0'),
-        dependency('glib-2.0'),
-        dependency('granite')
+        dependency ('gtk+-3.0'),
+        dependency ('glib-2.0'),
+        dependency ('granite'),
+        dependency ('libosinfo-1.0')
     ],
     install: true
 )
