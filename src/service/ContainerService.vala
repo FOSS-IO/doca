@@ -18,6 +18,10 @@ public class ContainerService : Object, IContainerService {
         return dockerEngineApi.is_daemon_active ();
     }
 
+    public new bool is_current_user_in_docker_group () {
+        return dockerEngineApi.is_current_user_in_docker_group ();
+    }
+
     public new List<Container> list_all_containers () {
         return new List<Container> ();
     }

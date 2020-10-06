@@ -36,6 +36,19 @@ public class DockerEngineApi : Object, IDockerEngineApi {
         }
     }
 
+    public new bool is_current_user_in_docker_group () {
+        string stdout;
+
+        try {
+            var user_name = GLib.Environment.get_user_name ();
+            GLib.Process.spawn_command_line_sync (@"groups $user_name | grep -Po 'docker'", out stdout);
+
+            return stdout.contains("docker");
+        } catch (SpawnError e) {
+            error ("Error: %s\n", e.message);
+        }
+    }
+
     public new List<Image> list_all_images () {
         string stdout;
         List<Image> images = new List<Image> ();
