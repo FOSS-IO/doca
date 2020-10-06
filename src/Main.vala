@@ -15,6 +15,10 @@ public class Main {
         message ("============ IS ACTIVE ============");
         print (@"$is_active\n");
 
+        var is_current_user_in_docker_group = containerService.is_current_user_in_docker_group ();
+        message ("============ IS CURRENT USER IN DOCKER GROUP ============");
+        print (@"$is_current_user_in_docker_group\n");
+
         var images = containerService.list_all_images ();
         message ("============ IMAGES ============");
         images.foreach ((entry) => {
