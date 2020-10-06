@@ -17,13 +17,12 @@ namespace Doca.Widgets {
             var label = new Gtk.Label ("teste");
 
             var main = new Gtk.Stack ();
-            var label2 = new Gtk.Label ("teste2");
-
 
             var welcome = new Doca.Widgets.Welcome (window);
 
 
             sidebar.add_named(label, "label");
+
             main.add_named(welcome, "welcome");
 
             pack1 (sidebar, false, false);
