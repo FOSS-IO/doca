@@ -20,3 +20,10 @@
     background-color: transparent;
 }
 
+.list-box-row {
+    background-color: transparent;
+}
+
+.list-box-row-label {
+    color: red;
+}

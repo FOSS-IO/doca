@@ -38,7 +38,7 @@ namespace Doca.Widgets {
             list_box = new Gtk.ListBox ();
             list_box.get_style_context ().add_class ("list-box");
             //  item_box.set_activate_on_single_click (false);
-            list_box.selection_mode = Gtk.SelectionMode.MULTIPLE;
+            list_box.selection_mode = Gtk.SelectionMode.SINGLE;
             list_box.valign = Gtk.Align.FILL;
             list_box.expand = true;
 
@@ -46,6 +46,13 @@ namespace Doca.Widgets {
             scroll.expand = true;
 
             attach (scroll, 0, 1, 1, 2);
+
+            var processes = containerService.list_all_processes ();
+            processes.foreach ((entry) => {
+                var teste = new Doca.Widgets.Components.ContainerListRow (entry.names);
+                list_box.add (teste);
+            });
+
 
         }
     }

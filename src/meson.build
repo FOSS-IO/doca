@@ -25,7 +25,8 @@ widget_files = files (
   'widgets/HeaderBar.vala',
   'widgets/Paned.vala',
   'widgets/ContainerList.vala',
-  'widgets/Welcome.vala'
+  'widgets/Welcome.vala',
+  'widgets/components/ContainerListRow.vala'
 )
 
 utils_files = files (
