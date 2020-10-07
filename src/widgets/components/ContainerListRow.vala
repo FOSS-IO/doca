@@ -1,17 +1,19 @@
+using Doca.Entity;
+
 namespace Doca.Widgets.Components {
 
     public class ContainerListRow : Gtk.ListBoxRow {
-
+        public Doca.Entity.Process process;
         public Gtk.Label title { get; set; }
         public string data;
 
-        public ContainerListRow (string a) {
-            this.data = a;
+        public ContainerListRow (Doca.Entity.Process proc) {
+            this.process = proc;
 
             get_style_context ().add_class ("list-box-row");
             expand = true;
 
-            title = new Gtk.Label (data);
+            title = new Gtk.Label (process.names);
             title.get_style_context ().add_class ("list-box-row-label");
             title.halign = Gtk.Align.START;
             title.ellipsize = Pango.EllipsizeMode.END;

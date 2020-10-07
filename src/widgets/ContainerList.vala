@@ -1,7 +1,10 @@
+using Doca.Service;
+using Doca.Service.Adapter;
+
 namespace Doca.Widgets {
 
     public class ContainerList : Gtk.Grid {
-
+        IContainerService containerService = new ContainerService ();
         public weak Window window { get; construct; }
         public Gtk.Grid title_grid { get; set; }
         public Gtk.Label title_text { get; set; }
@@ -47,17 +50,13 @@ namespace Doca.Widgets {
             scroll.expand = true;
 
             attach (scroll, 0, 1, 1, 2);
-<<<<<<< HEAD
 
             var processes = containerService.list_all_processes ();
-            processes.foreach ((entry) => {
-                var teste = new Doca.Widgets.Components.ContainerListRow (entry.names);
-                list_box.add (teste);
+            processes.foreach ((process) => {
+                list_box.add (new Doca.Widgets.Components.ContainerListRow (process));
             });
 
 
-=======
->>>>>>> 5391466a22e2b444f24af44cfb6ad074d581f0ab
         }
 
     }
