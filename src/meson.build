@@ -11,8 +11,8 @@ service_files = files (
 )
 
 app_files = files (
-    'Main.vala',
-    'Application.vala'
+    'Application.vala',
+    'Main.vala'
 )
 
 docker_api_files = files (
@@ -21,15 +21,11 @@ docker_api_files = files (
 )
 
 widget_files = files (
-  'widgets/Window.vala',
+  'widgets/components/ContainerListRow.vala',
+  'widgets/utils/Settings.vala',
+  'widgets/ContainerList.vala',
   'widgets/HeaderBar.vala',
   'widgets/Paned.vala',
-  'widgets/ContainerList.vala',
   'widgets/Welcome.vala',
-  'widgets/components/ContainerListRow.vala'
+  'widgets/Window.vala'
 )
-
-utils_files = files (
-  'utils/Settings.vala'
-)
-

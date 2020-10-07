@@ -55,8 +55,6 @@ namespace Doca.Widgets {
             images.foreach ((image) => {
                 list_box.add (new Doca.Widgets.Components.ContainerListRow (image));
             });
-
-
         }
 
     }

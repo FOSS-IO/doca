@@ -24,7 +24,6 @@ namespace Doca.Widgets.Components {
             add (title);
         }
 
-
     }
 
 }
