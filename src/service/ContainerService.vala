@@ -34,7 +34,35 @@ namespace Doca.Service {
         }
 
         public new List<Container> list_all_containers () {
-            return new List<Container> ();
+            var containers = new List<Container> ();
+            var images = list_all_images ();
+            var processes = list_all_processes ();
+            var stats = list_all_stats ();
+
+            foreach (var image in images) {
+                Entity.Process process_found = null;
+                Stats stats_found = null;
+
+                foreach (var process in processes) {
+                    if (image.repository_tag == process.image_id) {
+                        process_found = process;
+                        break;
+                    }
+                }
+
+                if (process_found != null) {
+                    foreach (var _stats in stats) {
+                        if (process_found.id == _stats.container_id) {
+                            stats_found = _stats;
+                            break;
+                        }
+                    }
+                }
+
+                containers.append (new Container (image, process_found, stats_found));
+            }
+
+            return containers;
         }
 
         public new List<Image> list_all_images () {

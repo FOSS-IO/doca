@@ -32,7 +32,7 @@ namespace Doca.Entity {
             this.networks = networks;
         }
 
-        public string to_string () {
+        public new string to_string () {
             return @"Process(id=\"$id\", image_id=\"$image_id\", command=\"$command\", created_at=\"$created_at\", running_for=\"$running_for\", ports=\"$ports\", status=\"$status\", size=\"$size\", names=\"$names\", labels=\"$labels\", mounts=\"$mounts\", networks=\"$networks\")";
         }
 

@@ -25,7 +25,7 @@ namespace Doca.Entity {
             this.pids = pids;
         }
 
-        public string to_string () {
+        public new string to_string () {
             return @"Stats(container_id=\"$container_id\", name=\"$name\", id=\"$id\", cpu_perc=\"$cpu_perc\", mem_usage=\"$mem_usage\", net_io=\"$net_io\", block_io=\"$block_io\", mem_perc=\"$mem_perc\", pids=\"$pids\")";
         }
 
