@@ -15,7 +15,6 @@ executable(
     widget_files,
     app_files,
 
-
     dependencies: [
         dependency ('gtk+-3.0'),
         dependency ('glib-2.0'),
