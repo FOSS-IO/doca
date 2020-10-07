@@ -22,8 +22,23 @@
 
 .list-box-row {
     background-color: transparent;
+    transition: background 0.3s ease;
+    margin: 0 0;
+    border: none;
+}
+
+.list-box-row:selected {
+    background-color: transparent;
+    border: none;
+}
+
+.list-box-row:hover {
+    background-color: shade (@bg_color, 0.96);
 }
 
 .list-box-row-label {
-    color: red;
+    /* color: red; */
+    font-size: 14px;
+    margin: 5px 0;
+    font-weight: 500;
 }
