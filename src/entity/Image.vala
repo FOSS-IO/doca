@@ -22,7 +22,7 @@ namespace Doca.Entity {
             this.size = size;
         }
 
-        public new string to_string () {
+        public string to_string () {
             return @"Image(id=\"$id\", repository=\"$repository\", tag=\"$tag\", digest=\"$digest\", created_since=\"$created_since\", created_at=\"$created_at\", size=\"$size\")";
         }
 
