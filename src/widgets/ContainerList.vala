@@ -2,8 +2,10 @@ namespace Doca.Widgets {
 
     public class ContainerList : Gtk.Grid {
         public weak Window window { get; construct; }
-        public Gtk.Grid titleGrid;
-        public Gtk.Label titleText;
+        public Gtk.Grid title_grid;
+        public Gtk.Label title_text;
+        public Gtk.ScrolledWindow scroll;
+        public Gtk.ListBox list_box;
 
         public ContainerList ( Window main_window ) {
             Object (
@@ -15,15 +17,36 @@ namespace Doca.Widgets {
         }
 
         construct {
-            titleText = new Gtk.Label ("CONTAINERS");
-            titleText.get_style_context ().add_class ("sidebar-title");
-            titleText.halign = Gtk.Align.CENTER;
-            titleText.hexpand = true;
+            //TITLE
+            this.get_style_context ().add_class ("sidebar");
+            title_text = new Gtk.Label ("CONTAINERS");
+            title_text.get_style_context ().add_class ("sidebar-title-text");
+            title_text.halign = Gtk.Align.CENTER;
+            title_text.hexpand = true;
 
-            titleGrid = new Gtk.Grid ();
-            titleGrid.add (titleText);
+            title_grid = new Gtk.Grid ();
+            title_grid.get_style_context ().add_class ("sidebar-title");
+            title_grid.add (title_text);
 
-            attach (titleGrid, 0, 0);
+            attach (title_grid, 0, 0);
+
+            //LIST
+            scroll = new Gtk.ScrolledWindow (null, null);
+            scroll.hscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
+            scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
+
+            list_box = new Gtk.ListBox ();
+            list_box.get_style_context ().add_class ("library-box");
+            //  item_box.set_activate_on_single_click (false);
+            list_box.selection_mode = Gtk.SelectionMode.MULTIPLE;
+            list_box.valign = Gtk.Align.FILL;
+            list_box.expand = true;
+
+            scroll.add (list_box);
+            scroll.expand = true;
+
+            attach (scroll, 0, 1, 1, 2);
+
         }
     }
 }

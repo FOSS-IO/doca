@@ -11,6 +11,7 @@ namespace Doca.Widgets {
         }
 
         construct {
+            this.get_style_context ().add_class ("headerbar");
             title = PROJECT_NAME;
             show_close_button = true;
 
@@ -42,7 +43,7 @@ namespace Doca.Widgets {
 
             pack_end (menu_button);
 
-            //  pack_end (mode_switch);
+            pack_end (mode_switch);
         }
 
         public void open_dialog () {

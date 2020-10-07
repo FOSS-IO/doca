@@ -1,5 +1,23 @@
+.headerbar {
+
+}
+
+.sidebar {
+    /* background: shade (@BLUEBERRY_300, 1.15); */
+
+    background: shade( @bg_color, 1);
+}
+
 .sidebar-title {
-	color: #002e99;
-	margin: 10px;
+    background: shade( @bg_color, 0.95);
+    border-bottom: 1px solid shade( @bg_color, 0.90);
+}
+
+.sidebar-title-text {
+    font-weight: 600;
+	/* color: @STRAWBERRY_900; */
+	margin: 8px;
 	font-size: 15px;
 }
+
+

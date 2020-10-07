@@ -10,6 +10,15 @@ namespace Doca.Widgets {
         }
 
         construct {
+            Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = settings.dark_theme;
+
+            var css_provider = new Gtk.CssProvider ();
+            css_provider.load_from_resource ("/com/github/foss-io/doca/stylesheet.css");
+
+            Gtk.StyleContext.add_provider_for_screen (
+                Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
+
             paned = new Paned (this);
 
             window_position = Gtk.WindowPosition.CENTER;

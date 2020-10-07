@@ -1,15 +1,26 @@
 project('com.github.foss-io.doca', 'vala', 'c')
 
-# Include the gnome module
 gnome = import('gnome')
-resources = gnome.compile_resources(
-    'as-resources', 'data/assets.gresource.xml',
-    source_dir: 'data',
-    c_name: 'as'
-)
-
 
 subdir('data')
 subdir('src')
+
+executable(
+    meson.project_name(),
+    resources,
+    entity_files,
+    service_files,
+    app_files,
+    docker_api_files,
+    widget_files,
+    utils_files,
+    dependencies: [
+        dependency ('gtk+-3.0'),
+        dependency ('glib-2.0'),
+        dependency ('granite')
+        # dependency ('libosinfo-1.0')
+    ],
+    install: true
+)
 
 meson.add_install_script('meson/post_install.py')

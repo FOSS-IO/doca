@@ -23,8 +23,19 @@ namespace Doca.Widgets {
 
             //MAIN
             var main = new Gtk.Stack ();
+
+
+
             welcome = new Welcome (window);
-            main.add_named(welcome, "welcome");
+
+            var grid = new Gtk.Grid ();
+            grid.orientation = Gtk.Orientation.VERTICAL;
+
+            //  var image = new Gtk.Image.from_icon_name ("address-book-new", Gtk.IconSize.BUTTON);
+            //  grid.attach (image, 0, 0);
+            grid.attach (welcome, 0, 1);
+
+            main.add_named(grid, "welcome");
             pack2 (main, true, false);
         }
     }
