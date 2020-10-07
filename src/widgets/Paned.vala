@@ -1,9 +1,10 @@
 namespace Doca.Widgets {
 
     public class Paned : Gtk.Paned {
+
         public weak Window window { get; construct; }
-        public Welcome welcome;
-        public ContainerList list;
+        public Welcome welcome { get; set; }
+        public ContainerList list { get; set; }
 
         public Paned (Window main_window) {
             Object (
@@ -38,6 +39,7 @@ namespace Doca.Widgets {
             main.add_named(grid, "welcome");
             pack2 (main, true, false);
         }
-    }
-}
 
+    }
+
+}

@@ -1,8 +1,9 @@
 namespace Doca.Widgets {
 
     public class HeaderBar : Gtk.HeaderBar {
+
         public Window main_window { get; construct; }
-        private Granite.ModeSwitch mode_switch;
+        private Granite.ModeSwitch mode_switch { get; set; }
 
         public HeaderBar (Window window) {
             Object (
@@ -65,6 +66,7 @@ namespace Doca.Widgets {
             dialog.show_all ();
             dialog.present ();
         }
-    }
-}
 
+    }
+
+}
