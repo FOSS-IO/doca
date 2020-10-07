@@ -1,4 +1,4 @@
-# ![Doca](data/assets/doca_logo.png)
+# ![Doca](.github/doca_logo.png)
 
 > Gtk Client for Docker
 
