@@ -36,7 +36,7 @@ namespace Doca.Widgets {
             scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
 
             list_box = new Gtk.ListBox ();
-            list_box.get_style_context ().add_class ("library-box");
+            list_box.get_style_context ().add_class ("list-box");
             //  item_box.set_activate_on_single_click (false);
             list_box.selection_mode = Gtk.SelectionMode.MULTIPLE;
             list_box.valign = Gtk.Align.FILL;

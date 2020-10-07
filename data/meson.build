@@ -9,9 +9,9 @@ resources = gnome.compile_resources(
     'assets.gresource.xml'
 )
 
-icons_dir = join_paths(get_option('datadir'), 'icons', 'hicolor')
+# icons_dir = join_paths(get_option('datadir'), 'icons', 'hicolor')
 
-install_data(
-    join_paths('assets', 'icons', 'logo.svg'),
-    install_dir: join_paths(icons_dir),
-)
+# install_data(
+#     join_paths('assets', 'icons', 'logo.svg'),
+#     install_dir: join_paths(icons_dir),
+# )
