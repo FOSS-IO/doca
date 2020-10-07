@@ -1,0 +1,75 @@
+# Portuguese translations for com.github.foss-io.doca package.
+# Copyright (C) 2020 THE com.github.foss-io.doca'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.foss-io.doca package.
+# Automatically generated, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.foss-io.doca\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-07 20:09-0300\n"
+"PO-Revision-Date: 2020-10-07 19:57-0300\n"
+"Last-Translator: Gustavo Oquendo Nogales\n"
+"Language-Team: FOSS-IO\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: data/com.github.foss-io.doca.appdata.xml.in:7
+#: data/com.github.foss-io.doca.desktop.in:3
+#: data/com.github.foss-io.doca.desktop.in:4
+msgid "Doca"
+msgstr "Doca"
+
+#: data/com.github.foss-io.doca.appdata.xml.in:8
+#, fuzzy
+msgid "Managing docker containers with a few clicks"
+msgstr "Gerenciar containers nunca foi tão fácil!"
+
+#: data/com.github.foss-io.doca.appdata.xml.in:10
+msgid "Create, delete and control your docker containers with a few clicks"
+msgstr ""
+"Crie, delete e controle seus containers do docker com apenas alguns cliques"
+
+#: data/com.github.foss-io.doca.desktop.in:5
+msgid ":Manage docker containers"
+msgstr "Gerencie containers do Docker"
+
+#: data/com.github.foss-io.doca.desktop.in:8
+msgid "com.github.foss-io.doca"
+msgstr "com.github.foss-io.doca"
+
+#: data/com.github.foss-io.doca.desktop.in:11
+msgid "Docker;Container;Development;"
+msgstr "Docker;Container;Desenvolvimento"
+
+#. TITLE
+#: src/widgets/ContainerList.vala:26
+msgid "CONTAINERS"
+msgstr "CONTAINERS"
+
+#: src/widgets/Welcome.vala:10
+msgid "Welcome to Doca"
+msgstr "Bem vindo ao Doca"
+
+#: src/widgets/Welcome.vala:11
+msgid "Managing containers has never been easier!"
+msgstr "Gerenciar containers nunca foi tão fácil!"
+
+#: src/widgets/Welcome.vala:20
+msgid "Add a New Container"
+msgstr "Adicione um novo Container"
+
+#: src/widgets/Welcome.vala:20
+msgid "Create a new container from the DockerHub"
+msgstr "Crie um novo container a partir do DockerHub"
+
+#: src/widgets/Welcome.vala:21
+msgid "Import a Dockerfile"
+msgstr "Importe um Dockerfile"
+
+#: src/widgets/Welcome.vala:21
+msgid "Import a Dockerfile that you already have"
+msgstr "Importe um Dockerfile que você já possui"
