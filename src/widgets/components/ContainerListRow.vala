@@ -1,7 +1,8 @@
 namespace Doca.Widgets.Components {
 
     public class ContainerListRow : Gtk.ListBoxRow {
-        public Gtk.Label title;
+
+        public Gtk.Label title { get; set; }
         public string data;
 
         public ContainerListRow (string a) {
@@ -21,5 +22,7 @@ namespace Doca.Widgets.Components {
             add (title);
         }
 
+
     }
+
 }

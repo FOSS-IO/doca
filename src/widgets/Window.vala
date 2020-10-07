@@ -1,7 +1,8 @@
 namespace Doca.Widgets {
 
     public class Window : Gtk.ApplicationWindow {
-        public Paned paned;
+
+        public Paned paned { get; set; }
 
         public Window (Gtk.Application app) {
             Object (
@@ -52,7 +53,7 @@ namespace Doca.Widgets {
 
             return false;
         }
+
     }
+
 }
-
-

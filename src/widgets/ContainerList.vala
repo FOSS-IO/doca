@@ -1,11 +1,12 @@
 namespace Doca.Widgets {
 
     public class ContainerList : Gtk.Grid {
+
         public weak Window window { get; construct; }
-        public Gtk.Grid title_grid;
-        public Gtk.Label title_text;
-        public Gtk.ScrolledWindow scroll;
-        public Gtk.ListBox list_box;
+        public Gtk.Grid title_grid { get; set; }
+        public Gtk.Label title_text { get; set; }
+        public Gtk.ScrolledWindow scroll { get; set; }
+        public Gtk.ListBox list_box { get; set; }
 
         public ContainerList ( Window main_window ) {
             Object (
@@ -46,6 +47,7 @@ namespace Doca.Widgets {
             scroll.expand = true;
 
             attach (scroll, 0, 1, 1, 2);
+<<<<<<< HEAD
 
             var processes = containerService.list_all_processes ();
             processes.foreach ((entry) => {
@@ -54,6 +56,10 @@ namespace Doca.Widgets {
             });
 
 
+=======
+>>>>>>> 5391466a22e2b444f24af44cfb6ad074d581f0ab
         }
+
     }
+
 }
