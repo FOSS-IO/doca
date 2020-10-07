@@ -10,6 +10,8 @@ namespace Doca.Entity {
         public string created_at { get; private set; }
         public string size { get; private set; }
 
+        public string repository_tag { owned get { return @"$repository:$tag"; } }
+
         public Image(string id, string repository, string tag, string digest, string created_since, string created_at, string size) {
             this.id = id;
             this.repository = repository;
