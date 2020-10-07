@@ -19,10 +19,6 @@ executable(
         dependency ('gtk+-3.0'),
         dependency ('glib-2.0'),
         dependency ('granite')
-<<<<<<< HEAD
-        # dependency ('libosinfo-1.0')
-=======
->>>>>>> origin/stage
     ],
 
     install: true
