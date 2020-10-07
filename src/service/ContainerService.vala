@@ -7,7 +7,7 @@ namespace Doca.Service {
 
     public class ContainerService : Object, IContainerService {
 
-        public IDockerEngineApi dockerEngineApi { get; private set; }
+        private IDockerEngineApi dockerEngineApi { get; set; }
 
         construct {
             dockerEngineApi = new DockerEngineApi ();
