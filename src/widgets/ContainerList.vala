@@ -51,9 +51,9 @@ namespace Doca.Widgets {
 
             attach (scroll, 0, 1, 1, 2);
 
-            var processes = containerService.list_all_processes ();
-            processes.foreach ((process) => {
-                list_box.add (new Doca.Widgets.Components.ContainerListRow (process));
+            var images = containerService.list_all_images ();
+            images.foreach ((image) => {
+                list_box.add (new Doca.Widgets.Components.ContainerListRow (image));
             });
 
 
