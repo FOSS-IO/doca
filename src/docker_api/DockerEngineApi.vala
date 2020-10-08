@@ -153,6 +153,22 @@ namespace Doca.DockerApi {
             return stats;
         }
 
+        public new void start_image (string id) {
+            try {
+                GLib.Process.spawn_command_line_sync (@"docker start $id");
+            } catch (SpawnError e) {
+                error ("Error: %s\n", e.message);
+            }
+        }
+
+        public new void stop_image (string id) {
+            try {
+                GLib.Process.spawn_command_line_sync (@"docker stop $id");
+            } catch (SpawnError e) {
+                error ("Error: %s\n", e.message);
+            }
+        }
+
     }
 
 }

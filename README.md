@@ -18,6 +18,15 @@ You'll need the following dependencies to build:
 - [glib 2.0](https://valadoc.org/glib-2.0/GLib.html)
 - [granite](https://valadoc.org/granite/Granite.html)
 
+### IDE
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Vala](https://marketplace.visualstudio.com/items?itemName=prince781.vala)
+- [Meson](https://marketplace.visualstudio.com/items?itemName=asabil.meson)
+- [ninja-build](https://marketplace.visualstudio.com/items?itemName=surajbarkale.ninja)
+- [Uncrustify](https://marketplace.visualstudio.com/items?itemName=LaurentTreguier.uncrustify)
+
+
 ## Building, Testing, and Installation
 
 Run `meson build` to configure the build environment and run `ninja` to build

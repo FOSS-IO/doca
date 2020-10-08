@@ -12,6 +12,8 @@ namespace Doca.Service.Adapter {
         public abstract List<Image> list_all_images ();
         public abstract List<Entity.Process> list_all_processes ();
         public abstract List<Stats> list_all_stats ();
+        public abstract void start_image (string id);
+        public abstract void stop_image (string id);
 
     }
 
