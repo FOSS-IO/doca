@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2020 FOSS-IO <https://github.com/foss-io/doca> -->
+<component type="desktop">
+  <id>com.github.foss-io.doca</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>Doca</name>
+  <summary>Managing docker containers with a few clicks</summary>
+  <description>
+    <p>Create, delete and control your docker containers with a few clicks</p>
+  </description>
+  <!-- <provides>
+    <binary>@appid@</binary>
+  </provides> -->
+  <!-- <releases>
+      <release version="0.0.1" date="2020-11-01">
+			<description>
+				<p>New Features</p>
+                <ul>
+                    <li>Create, Edit, and Delete databases.</li>
+                    <li>New context menu to copy and edit tables.</li>
+                    <li>Support unencrypted connections.</li>
+                </ul>
+				<p>Bug Fixes</p>
+                <ul>
+                    <li>Fix copy column data.</li>
+                </ul>
+				<p>Translations</p>
+                <ul>
+                    <li>Updated translations for Ukranian, Russian, French, and German.</li>
+                </ul>
+			</description>
+		</release>
+	</releases> -->
+  <!-- <screenshots>
+		<screenshot type="default">
+			<image>https://raw.githubusercontent.com/Alecaddd/sequeler/master/data/assets/screenshots/sequeler-screenshot.png</image>
+		</screenshot>
+		<screenshot>
+			<image>https://raw.githubusercontent.com/Alecaddd/sequeler/master/data/assets/screenshots/sequeler-screenshot1.png</image>
+		</screenshot>
+		<screenshot>
+			<image>https://raw.githubusercontent.com/Alecaddd/sequeler/master/data/assets/screenshots/sequeler-screenshot2.png</image>
+		</screenshot>
+		<screenshot>
+			<image>https://raw.githubusercontent.com/Alecaddd/sequeler/master/data/assets/screenshots/sequeler-screenshot3.png</image>
+		</screenshot>
+		<screenshot>
+			<image>https://raw.githubusercontent.com/Alecaddd/sequeler/master/data/assets/screenshots/sequeler-screenshot4.png</image>
+		</screenshot>
+	</screenshots> -->
+  <developer_name></developer_name>
+  <launchable type="desktop-id">@appid@.desktop</launchable>
+  <url type="homepage">https://github.com/FOSS-IO/doca</url>
+  <!-- <url type="donation">https://www.paypal.me/alecaddd</url> -->
+  <url type="bugtracker">https://github.com/FOSS-IO/doca/issues</url>
+  <url type="help">https://github.com/FOSS-IO/doca</url>
+  <!-- <url type="translate">https://hosted.weblate.org/projects/sequeler</url> -->
+  <!-- <update_contact>castellani.ale@gmail.com</update_contact> -->
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-cartoon">none</content_attribute>
+    <content_attribute id="violence-fantasy">none</content_attribute>
+    <content_attribute id="violence-realistic">none</content_attribute>
+    <content_attribute id="violence-bloodshed">none</content_attribute>
+    <content_attribute id="violence-sexual">none</content_attribute>
+    <content_attribute id="violence-desecration">none</content_attribute>
+    <content_attribute id="violence-slavery">none</content_attribute>
+    <content_attribute id="violence-worship">none</content_attribute>
+    <content_attribute id="drugs-alcohol">none</content_attribute>
+    <content_attribute id="drugs-narcotics">none</content_attribute>
+    <content_attribute id="drugs-tobacco">none</content_attribute>
+    <content_attribute id="sex-nudity">none</content_attribute>
+    <content_attribute id="sex-themes">none</content_attribute>
+    <content_attribute id="sex-homosexuality">none</content_attribute>
+    <content_attribute id="sex-prostitution">none</content_attribute>
+    <content_attribute id="sex-adultery">none</content_attribute>
+    <content_attribute id="sex-appearance">none</content_attribute>
+    <content_attribute id="language-profanity">none</content_attribute>
+    <content_attribute id="language-humor">none</content_attribute>
+    <content_attribute id="language-discrimination">none</content_attribute>
+    <content_attribute id="social-chat">none</content_attribute>
+    <content_attribute id="social-info">none</content_attribute>
+    <content_attribute id="social-audio">none</content_attribute>
+    <content_attribute id="social-location">none</content_attribute>
+    <content_attribute id="social-contacts">none</content_attribute>
+    <content_attribute id="money-purchasing">none</content_attribute>
+    <content_attribute id="money-gambling">none</content_attribute>
+  </content_rating>
+  <custom>
+    <value key="x-appcenter-color-primary">#12204A</value>
+    <value key="x-appcenter-color-primary-text">#ffffff</value>
+    <value key="x-appcenter-suggested-price">5</value>
+  </custom>
+  <kudos>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>HighContrast</kudo>
+    <kudo>ModernToolkit</kudo>
+  </kudos>
+</component>
