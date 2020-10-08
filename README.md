@@ -16,12 +16,11 @@ You'll need the following dependencies to build:
 
 - [gtk+ 3.0](https://valadoc.org/gtk+-3.0/Gtk.html)
 - [glib 2.0](https://valadoc.org/glib-2.0/GLib.html)
-- [libosinfo 1.0](https://valadoc.org/libosinfo-1.0/index.htm)
 - [granite](https://valadoc.org/granite/Granite.html)
 
 ## Building, Testing, and Installation
 
-Run `meson build` to configure the build environment and run `ninja test` to build
+Run `meson build` to configure the build environment and run `ninja` to build
 ```bash
 meson build --prefix=/usr
 cd build
