@@ -77,6 +77,14 @@ namespace Doca.Service {
             return dockerEngineApi.list_all_stats ();
         }
 
+        public new void start_image (string id) {
+            dockerEngineApi.start_image (id);
+        }
+
+        public new void stop_image (string id) {
+            dockerEngineApi.stop_image (id);
+        }
+
     }
 
 }

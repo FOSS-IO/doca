@@ -25,5 +25,12 @@ ninja install
 
 - [gtk+ 3.0](https://valadoc.org/gtk+-3.0/Gtk.html)
 - [glib 2.0](https://valadoc.org/glib-2.0/GLib.html)
-- [libosinfo 1.0](https://valadoc.org/libosinfo-1.0/index.htm)
 - [granite](https://valadoc.org/granite/Granite.html)
+
+### IDE
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Vala](https://marketplace.visualstudio.com/items?itemName=prince781.vala)
+- [Meson](https://marketplace.visualstudio.com/items?itemName=asabil.meson)
+- [ninja-build](https://marketplace.visualstudio.com/items?itemName=surajbarkale.ninja)
+- [Uncrustify](https://marketplace.visualstudio.com/items?itemName=LaurentTreguier.uncrustify)
