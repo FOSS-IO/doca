@@ -1,6 +1,3 @@
-using Doca.Service;
-using Doca.Service.Adapter;
-
 namespace Doca {
 
     public class Main {
