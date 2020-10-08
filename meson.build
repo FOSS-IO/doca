@@ -1,6 +1,13 @@
 project('com.github.foss-io.doca', 'vala', 'c')
 
+gnome = import('gnome')
+i18n = import('i18n')
+
+# Set our translation domain
+add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), language:'c')
+
 subdir('data')
+subdir('po')
 subdir('src')
 
 executable(

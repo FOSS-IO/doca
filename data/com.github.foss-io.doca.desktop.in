@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Doca
+GenericName=Doca
+Comment=Manage docker containers
+Categories=Utility;Development;
+Exec=com.github.foss-io.doca
+Icon=com.github.foss-io.doca
+Terminal=false
+Type=Application
+Keywords=Docker;Container;Development;

@@ -23,7 +23,7 @@ namespace Doca.Widgets {
         construct {
             //TITLE
             this.get_style_context ().add_class ("sidebar");
-            title_text = new Gtk.Label ("CONTAINERS");
+            title_text = new Gtk.Label (_("CONTAINERS"));
             title_text.get_style_context ().add_class ("sidebar-title-text");
             title_text.halign = Gtk.Align.CENTER;
             title_text.hexpand = true;
