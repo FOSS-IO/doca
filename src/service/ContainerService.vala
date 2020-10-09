@@ -57,18 +57,16 @@ namespace Doca.Service {
                 Stats stats_found = null;
 
                 foreach (var process in processes) {
-                    if (image.repository_tag == process.image_id) {
+                    if (image.repository == process.image_id.substring (0, process.image_id.index_of (":"))) {
                         process_found = process;
                         break;
                     }
                 }
 
-                if (process_found != null) {
-                    foreach (var _stats in stats) {
-                        if (process_found.id == _stats.container_id) {
-                            stats_found = _stats;
-                            break;
-                        }
+                foreach (var _stats in stats) {
+                    if (process_found.id == _stats.container_id) {
+                        stats_found = _stats;
+                        break;
                     }
                 }
 
