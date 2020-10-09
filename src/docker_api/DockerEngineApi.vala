@@ -95,7 +95,7 @@ namespace Doca.DockerApi {
             List<Entity.Process> processes = new List<Entity.Process> ();
 
             try {
-                GLib.Process.spawn_command_line_sync ("""docker ps --format "{{.ID}};{{.Image}};{{.Command}};{{.CreatedAt}};{{.RunningFor}};{{.Ports}};{{.Status}};{{.Size}};{{.Names}};{{.Labels}};{{.Mounts}};{{.Networks}}" """, out stdout);
+                GLib.Process.spawn_command_line_sync ("""docker ps -a --format "{{.ID}};{{.Image}};{{.Command}};{{.CreatedAt}};{{.RunningFor}};{{.Ports}};{{.Status}};{{.Size}};{{.Names}};{{.Labels}};{{.Mounts}};{{.Networks}}" """, out stdout);
 
                 var process_lines = stdout.split ("\n");
 
@@ -128,7 +128,7 @@ namespace Doca.DockerApi {
             List<Stats> stats = new List<Stats> ();
 
             try {
-                GLib.Process.spawn_command_line_sync ("""docker stats --no-stream --format "{{.Container}};{{.Name}};{{.ID}};{{.CPUPerc}};{{.MemUsage}};{{.NetIO}};{{.BlockIO}};{{.MemPerc}};{{.PIDs}}" """, out stdout);
+                GLib.Process.spawn_command_line_sync ("""docker stats -a --no-stream --format "{{.Container}};{{.Name}};{{.ID}};{{.CPUPerc}};{{.MemUsage}};{{.NetIO}};{{.BlockIO}};{{.MemPerc}};{{.PIDs}}" """, out stdout);
 
                 var stats_lines = stdout.split ("\n");
 
