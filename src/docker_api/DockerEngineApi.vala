@@ -11,7 +11,7 @@ namespace Doca.DockerApi {
             try {
                 GLib.Process.spawn_command_line_sync ("which docker", out stdout);
 
-                return !stdout.contains("not found");
+                return stdout.contains("/docker");
             } catch (SpawnError e) {
                 error ("Error: %s\n", e.message);
             }
@@ -35,7 +35,7 @@ namespace Doca.DockerApi {
             try {
                 GLib.Process.spawn_command_line_sync ("systemctl is-active docker.service", out stdout);
 
-                return stdout.contains("active");
+                return !stdout.contains("inactive");
             } catch (SpawnError e) {
                 error ("Error: %s\n", e.message);
             }
@@ -46,7 +46,7 @@ namespace Doca.DockerApi {
 
             try {
                 var user_name = GLib.Environment.get_user_name ();
-                GLib.Process.spawn_command_line_sync (@"groups $user_name | grep -Po 'docker'", out stdout);
+                GLib.Process.spawn_command_line_sync (@"groups $user_name", out stdout);
 
                 return stdout.contains("docker");
             } catch (SpawnError e) {
