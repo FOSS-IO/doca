@@ -19,6 +19,7 @@ os_files = files (
 service_files = files (
     'service/adapter/IContainerService.vala',
     'service/adapter/IDistributionService.vala',
+    'service/exception/ContainerError.vala',
     'service/ContainerService.vala',
     'service/DistributionService.vala'
 )
