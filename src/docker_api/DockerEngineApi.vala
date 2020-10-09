@@ -128,7 +128,7 @@ namespace Doca.DockerApi {
             List<Stats> stats = new List<Stats> ();
 
             try {
-                GLib.Process.spawn_command_line_sync ("""docker stats --no-stream --format "{{.Container}};{{.Name}};{{.ID}};{{.CPUPerc}};{{.MemUsage}};{{.NetIO}};{{.BlockIO}};{{.MemPerc}};{{.PIDs}}" """, out stdout);
+                GLib.Process.spawn_command_line_sync ("""docker stats -a --no-stream --format "{{.Container}};{{.Name}};{{.ID}};{{.CPUPerc}};{{.MemUsage}};{{.NetIO}};{{.BlockIO}};{{.MemPerc}};{{.PIDs}}" """, out stdout);
 
                 var stats_lines = stdout.split ("\n");
 
