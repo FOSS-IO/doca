@@ -95,7 +95,7 @@ namespace Doca.DockerApi {
             List<Entity.Process> processes = new List<Entity.Process> ();
 
             try {
-                GLib.Process.spawn_command_line_sync ("""docker ps --format "{{.ID}};{{.Image}};{{.Command}};{{.CreatedAt}};{{.RunningFor}};{{.Ports}};{{.Status}};{{.Size}};{{.Names}};{{.Labels}};{{.Mounts}};{{.Networks}}" """, out stdout);
+                GLib.Process.spawn_command_line_sync ("""docker ps -a --format "{{.ID}};{{.Image}};{{.Command}};{{.CreatedAt}};{{.RunningFor}};{{.Ports}};{{.Status}};{{.Size}};{{.Names}};{{.Labels}};{{.Mounts}};{{.Networks}}" """, out stdout);
 
                 var process_lines = stdout.split ("\n");
 

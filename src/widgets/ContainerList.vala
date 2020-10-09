@@ -52,9 +52,9 @@ namespace Doca.Widgets {
             attach (scroll, 0, 1, 1, 2);
 
             if (containerService.is_daemon_active()) {
-                var images = containerService.list_all_images ();
-                images.foreach ((image) => {
-                    list_box.add (new Doca.Widgets.Components.ContainerListRow (image));
+                var containers = containerService.list_all_containers ();
+                containers.foreach ((container) => {
+                    list_box.add (new Doca.Widgets.Components.ContainerListRow (container));
                 });
             }
 
