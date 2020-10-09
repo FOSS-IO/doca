@@ -36,9 +36,22 @@
     background-color: shade (@bg_color, 0.96);
 }
 
+.list-box-row-grid {
+    margin: 0 0;
+}
+
 .list-box-row-label {
     /* color: red; */
     font-size: 14px;
     margin: 5px 0;
     font-weight: 500;
+}
+
+.status-indicator {
+    /* padding: 5px; */
+    min-height: 10px;
+    min-width: 10px;
+    margin: 15 5;
+    background-color: @LIME_500;
+    border-radius: 100%;
 }

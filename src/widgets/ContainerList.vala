@@ -51,10 +51,13 @@ namespace Doca.Widgets {
 
             attach (scroll, 0, 1, 1, 2);
 
-            var images = containerService.list_all_images ();
-            images.foreach ((image) => {
-                list_box.add (new Doca.Widgets.Components.ContainerListRow (image));
-            });
+            if (containerService.is_daemon_active()) {
+                var images = containerService.list_all_images ();
+                images.foreach ((image) => {
+                    list_box.add (new Doca.Widgets.Components.ContainerListRow (image));
+                });
+            }
+
         }
 
     }
