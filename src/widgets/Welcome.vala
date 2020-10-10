@@ -10,15 +10,12 @@ namespace Doca.Widgets {
                 title: _("Welcome to Doca"),
                 subtitle: _("Managing containers has never been easier!")
             );
-        }
 
-        construct {
-            valign = Gtk.Align.FILL;
-            halign = Gtk.Align.FILL;
-            vexpand = true;
-
-            append ("bookmark-new", _("Add a New Container"), _("Create a new container from the DockerHub"));
-            append ("document-import", _("Import a Dockerfile"), _("Import a Dockerfile that you already have"));
+            this.valign = Gtk.Align.FILL;
+            this.halign = Gtk.Align.FILL;
+            this.vexpand = true;
+            this.append ("bookmark-new", _("Add a New Container"), _("Create a new container from the DockerHub"));
+            this.append ("document-import", _("Import a Dockerfile"), _("Import a Dockerfile that you already have"));
         }
 
     }

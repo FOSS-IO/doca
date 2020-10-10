@@ -3,41 +3,39 @@ namespace Doca.Widgets {
     public class Paned : Gtk.Paned {
 
         public weak Window window { get; construct; }
-        public Welcome welcome { get; set; }
-        public ContainerList list { get; set; }
+        public Welcome welcome { get; private set; }
+        public ContainerList container_list { get; private set; }
+        public Gtk.Stack sidebar_stack { get; private set; }
+        public Gtk.Stack main_stack { get; private set; }
+        public Gtk.Grid main_grid { get; private set; }
+        //  public Gtk.Image new_image { get; private set; }
 
         public Paned (Window main_window) {
             Object (
                 orientation: Gtk.Orientation.HORIZONTAL,
                 window: main_window
             );
-        }
 
-        construct {
-            position = 260;
-
-            //SIDEBAR
-            var sidebar = new Gtk.Stack ();
-            list = new ContainerList (window);
-            sidebar.add_named(list, "list");
-            pack1 (sidebar, false, false);
-
-            //MAIN
-            var main = new Gtk.Stack ();
-
-
+            container_list = new ContainerList (window);
 
             welcome = new Welcome (window);
 
-            var grid = new Gtk.Grid ();
-            grid.orientation = Gtk.Orientation.VERTICAL;
+            //  new_image = new Gtk.Image.from_icon_name ("address-book-new", Gtk.IconSize.BUTTON);
 
-            //  var image = new Gtk.Image.from_icon_name ("address-book-new", Gtk.IconSize.BUTTON);
-            //  grid.attach (image, 0, 0);
-            grid.attach (welcome, 0, 1);
+            main_grid = new Gtk.Grid ();
+            main_grid.orientation = Gtk.Orientation.VERTICAL;
+            main_grid.attach (welcome, 0, 1);
+            //  main_grid.attach (new_image, 0, 0);
 
-            main.add_named(grid, "welcome");
-            pack2 (main, true, false);
+            sidebar_stack = new Gtk.Stack ();
+            sidebar_stack.add_named(container_list, "list");
+
+            main_stack = new Gtk.Stack ();
+            main_stack.add_named(main_grid, "welcome");
+
+            this.position = 260;
+            this.pack1 (sidebar_stack, false, false);
+            this.pack2 (main_stack, true, false);
         }
 
     }
