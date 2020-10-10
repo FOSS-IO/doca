@@ -1,5 +1,6 @@
 using Doca.Service;
 using Doca.Service.Adapter;
+using Doca.Entity;
 
 namespace Doca.Widgets {
 
@@ -51,13 +52,17 @@ namespace Doca.Widgets {
 
             attach (scroll, 0, 1, 1, 2);
 
+            reload ();
+
+        }
+
+        public void reload () {
             if (containerService.is_daemon_active()) {
                 var containers = containerService.list_all_containers ();
                 containers.foreach ((container) => {
                     list_box.add (new Doca.Widgets.Components.ContainerListRow (container));
                 });
             }
-
         }
 
     }

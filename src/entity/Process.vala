@@ -14,6 +14,7 @@ namespace Doca.Entity {
         public string labels { get; private set; }
         public string mounts { get; private set; }
         public string networks { get; private set; }
+        public bool is_running { owned get { return status.contains ("Up "); } }
 
         public Process (string id, string image_id, string command, string created_at, string running_for,
                         string ports, string status, string size, string names, string labels, string mounts,
