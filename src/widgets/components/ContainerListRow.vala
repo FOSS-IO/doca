@@ -8,9 +8,11 @@ namespace Doca.Widgets.Components {
 
         public delegate void OnStartContainer (string container_id);
         public delegate void OnStopContainer (string container_id);
+        public delegate void OnStatusChanges ();
 
         public OnStartContainer on_start_container;
         public OnStopContainer on_stop_container;
+        public OnStatusChanges on_status_changed;
 
         public Gtk.Label title_label { get; private set; }
         public Gtk.Button container_button { get; private set; }
@@ -63,6 +65,8 @@ namespace Doca.Widgets.Components {
             } else {
                 on_start_container (container.process.id);
             }
+
+            on_status_changed ();
         }
 
     }
