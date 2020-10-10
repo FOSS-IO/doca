@@ -62,7 +62,6 @@ namespace Doca.Widgets {
                     var container_list_row = new ContainerListRow (container);
                     container_list_row.on_start_container = containerService.start_image;
                     container_list_row.on_stop_container = containerService.stop_image;
-                    container_list_row.on_status_changed = this.reload;
 
                     list_box.add (container_list_row);
                 });
