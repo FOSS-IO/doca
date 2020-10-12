@@ -6,13 +6,9 @@ namespace Doca.Widgets.Components {
 
     public class ContainerListRow : Gtk.ListBoxRow {
 
-        public delegate void OnStartContainer (string container_id);
-        public delegate void OnStopContainer (string container_id);
-        public delegate void OnStatusChanges ();
-
-        public OnStartContainer on_start_container;
-        public OnStopContainer on_stop_container;
-        public OnStatusChanges on_status_changed;
+        public signal void on_start_container (string container_id);
+        public signal void on_stop_container (string container_id);
+        public signal void on_status_changed ();
 
         public Gtk.Label title_label { get; private set; }
         public Gtk.Button container_button { get; private set; }
@@ -60,11 +56,18 @@ namespace Doca.Widgets.Components {
         }
 
         private void container_button_clicked () {
+            var display_default = Gdk.Display.get_default ();
+            this.get_parent_window ().set_cursor (new Gdk.Cursor.from_name (display_default, "wait"));
+
+            var container_id = container.process.id;
+
             if (container.process.is_running) {
-                on_start_container (container.process.id);
+                on_start_container (container_id);
             } else {
-                on_start_container (container.process.id);
+                on_start_container (container_id);
             }
+
+            this.get_parent_window ().set_cursor (new Gdk.Cursor.from_name (display_default, "default"));
 
             on_status_changed ();
         }

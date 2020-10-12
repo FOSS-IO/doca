@@ -24,6 +24,7 @@ executable(
 
     dependencies: [
         dependency ('gtk+-3.0'),
+        dependency ('gdk-3.0'),
         dependency ('glib-2.0'),
         dependency ('granite')
     ],

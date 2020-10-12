@@ -64,12 +64,14 @@ namespace Doca.Widgets {
 
                 containers.foreach ((container) => {
                     var container_list_row = new ContainerListRow (container);
-                    container_list_row.on_start_container = containerService.start_image;
-                    container_list_row.on_stop_container = containerService.stop_image;
-                    container_list_row.on_status_changed = this.reload;
+                    container_list_row.on_start_container.connect (containerService.start_image);
+                    container_list_row.on_stop_container.connect (containerService.stop_image);
+                    container_list_row.on_status_changed.connect (this.reload);
 
                     list_box.add (container_list_row);
                 });
+
+                list_box.show_all ();
             } catch (ContainerError ex) {
                 if (ex is ContainerError.DAEMON_NOT_INSTALLED) {
                     // DAEMON_NOT_INSTALLED
