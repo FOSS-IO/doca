@@ -62,7 +62,7 @@ namespace Doca.Widgets.Components {
             var container_id = container.process.id;
 
             if (container.process.is_running) {
-                on_start_container (container_id);
+                on_stop_container (container_id);
             } else {
                 on_start_container (container_id);
             }
