@@ -25,10 +25,11 @@ namespace Doca.Widgets.Components {
             status_indicator_grid = new Gtk.Grid ();
             status_indicator_grid.halign = Gtk.Align.CENTER;
             status_indicator_grid.get_style_context ().add_class ("status-indicator");
+            status_indicator_grid.tooltip_markup = Granite.markup_accel_tooltip ({}, this.container.process.is_running ? "Running" : "Stopped");
             status_indicator_grid.get_style_context ().add_class (container.process.is_running ? "status-indicator-up" : "status-indicator-down");
             //  status_indicator_grid.set_size_request (20, 12);
             //  status_indicator_grid.margin = 15;
-
+            //
             title_label = new Gtk.Label (container.process.names);
             title_label.get_style_context ().add_class ("list-box-row-label");
             title_label.halign = Gtk.Align.START;
@@ -37,10 +38,10 @@ namespace Doca.Widgets.Components {
             title_label.set_line_wrap (true);
             title_label.hexpand = true;
 
-            container_button = new Gtk.Button.from_icon_name (container.process.is_running ? "media-playback-stop" : "media-playback-start", Gtk.IconSize.BUTTON);
+            container_button = new Gtk.Button.from_icon_name (container.process.is_running ? "media-playback-stop-symbolic" : "media-playback-start-symbolic", Gtk.IconSize.MENU);
             container_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
             container_button.get_style_context ().add_class ("btn-container");
-            container_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl><Enter>"}, "Start/Stop");
+            container_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Control>Return"}, "Start/Stop");
             container_button.clicked.connect (container_button_clicked);
 
             main_grid = new Gtk.Grid ();
