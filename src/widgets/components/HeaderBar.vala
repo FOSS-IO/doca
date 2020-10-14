@@ -1,4 +1,4 @@
-namespace Doca.Widgets {
+namespace Doca.Widgets.Components {
 
     public class HeaderBar : Gtk.HeaderBar {
 
@@ -13,7 +13,6 @@ namespace Doca.Widgets {
         }
 
         construct {
-
             mode_switch = new Granite.ModeSwitch.from_icon_name ("display-brightness-symbolic", "weather-clear-night-symbolic");
             mode_switch.primary_icon_tooltip_text = "Light background";
             mode_switch.secondary_icon_tooltip_text = "Dark background";
