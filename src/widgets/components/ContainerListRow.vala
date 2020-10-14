@@ -12,6 +12,12 @@ namespace Doca.Widgets.Components {
 
         public Gtk.Label title_label { get; private set; }
         public Gtk.Button container_button { get; private set; }
+        public Gtk.ModelButton duplicate_button { get; private set; }
+        public Gtk.ModelButton delete_button { get; private set; }
+        public Gtk.Separator menu_separator { get; private set; }
+        public Gtk.MenuButton menu_button { get; private set; }
+        public Gtk.Grid menu_grid { get; private set; }
+        public Gtk.Popover menu_popover { get; private set; }
         public Gtk.Grid main_grid { get; private set; }
         public Gtk.Grid status_indicator_grid { get; private set; }
         public Gtk.Spinner spinner { get; private set; }
@@ -40,18 +46,49 @@ namespace Doca.Widgets.Components {
             spinner = new Gtk.Spinner ();
             spinner.get_style_context ().add_class ("spinner");
 
-            //  var icon = new Gtk.Image.from_icon_name (container.process.is_running ? "zoom-out-symbolic" : "media-playback-start-symbolic", Gtk.IconSize.MENU);
             container_button = new Gtk.Button.from_icon_name (container.process.is_running ? "media-playback-stop-symbolic" : "media-playback-start-symbolic", Gtk.IconSize.MENU);
-            //  container_button = new Gtk.Button ();
-            //  container_button.set_image (icon);
-            //  container_button.can_focus = false;
-            //  container_button.always_show_image = true;
             container_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
             container_button.get_style_context ().add_class ("btn-container");
             container_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Control>Return"}, "Start/Stop");
             container_button.clicked.connect (container_button_clicked);
 
+            duplicate_button = new Gtk.ModelButton ();
+            duplicate_button.text = _("Duplicate Container");
 
+            delete_button = new Gtk.ModelButton ();
+            delete_button.text = _("Delete Container");
+
+            menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+            menu_separator.margin_top = 6;
+            menu_separator.margin_bottom = 6;
+
+            menu_button = new Gtk.MenuButton ();
+            menu_button.get_style_context ().add_class ("btn-menu");
+            menu_button.tooltip_text = _("Options");
+            menu_button.set_image (
+                new Gtk.Image.from_icon_name (
+                    "view-more-symbolic",
+                    Gtk.IconSize.SMALL_TOOLBAR
+                )
+            );
+
+            menu_grid = new Gtk.Grid ();
+            menu_grid.expand = true;
+            menu_grid.margin_top = 3;
+            menu_grid.margin_bottom = 3;
+            menu_grid.orientation = Gtk.Orientation.VERTICAL;
+
+            menu_grid.attach (duplicate_button, 0, 2, 1, 1);
+            menu_grid.attach (menu_separator, 0, 3, 1, 1);
+            menu_grid.attach (delete_button, 0, 4, 1, 1);
+            menu_grid.show_all ();
+
+            var menu_popover = new Gtk.Popover (null);
+            menu_popover.add (menu_grid);
+
+            menu_button.popover = menu_popover;
+            menu_button.relief = Gtk.ReliefStyle.NONE;
+            menu_button.valign = Gtk.Align.CENTER;
 
             main_grid = new Gtk.Grid ();
             main_grid.get_style_context ().add_class ("list-box-row-grid");
@@ -60,6 +97,7 @@ namespace Doca.Widgets.Components {
             main_grid.attach (title_label, 1, 0, 1, 1);
             main_grid.attach (spinner, 2, 0, 1, 1);
             main_grid.attach (container_button, 3, 0, 1, 1);
+            main_grid.attach (menu_button, 4, 0, 1, 1);
 
             this.get_style_context ().add_class ("list-box-row");
             this.expand = true;

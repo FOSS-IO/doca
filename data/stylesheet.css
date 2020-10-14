@@ -32,8 +32,16 @@
     border: none;
 }
 
+.list-box-row:selected .btn-menu image {
+	color: @fg_color;
+}
+
 .list-box-row:hover {
     background-color: shade (@bg_color, 0.96);
+}
+
+.list-box-row:hover .btn-menu {
+    opacity: 1;
 }
 
 .list-box-row-grid {
@@ -77,4 +85,16 @@
 
 .spinner {
     margin: 0 5px;
+}
+
+.btn-menu {
+    background: transparent;
+    opacity: 0;
+}
+
+.btn-menu:active,
+.btn-menu:focus
+.btn-menu:selected {
+    background-color: transparent;
+    color: #000;
 }
