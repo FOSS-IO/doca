@@ -63,6 +63,9 @@
     background-color: @STRAWBERRY_500;
 }
 
+.btn-container {
+    background: transparent;
+}
 .btn-container:focus {
     background:transparent;
     /* background-color: red; */
@@ -70,4 +73,8 @@
 
 .btn-container:active {
     background:transparent;
+}
+
+.spinner {
+    margin: 0 5px;
 }

@@ -11,8 +11,10 @@ namespace Doca.Widgets {
         public weak Window window { get; construct; }
         public Gtk.Label title_label { get; private set; }
         public Gtk.Grid title_grid { get; private set; }
+        public Gtk.SearchEntry search_bar { get; private set; }
         public Gtk.ScrolledWindow side_scrolled_window { get; private set; }
         public Gtk.ListBox list_box { get; private set; }
+
 
         public IContainerService containerService { get; private set; }
 
@@ -35,11 +37,20 @@ namespace Doca.Widgets {
             title_grid.get_style_context ().add_class ("sidebar-title");
             title_grid.add (title_label);
 
+            search_bar = new Gtk.SearchEntry ();
+            search_bar.placeholder_text = _("Search");
+            search_bar.hexpand = true;
+            search_bar.margin = 9;
+            search_bar.search_changed.connect (() => {
+                list_box.invalidate_filter ();
+            });
+
             list_box = new Gtk.ListBox ();
             list_box.get_style_context ().add_class ("list-box");
             list_box.selection_mode = Gtk.SelectionMode.SINGLE;
             list_box.valign = Gtk.Align.FILL;
             list_box.expand = true;
+            list_box.set_filter_func (on_search_container);
             //  item_box.set_activate_on_single_click (false);
 
             side_scrolled_window = new Gtk.ScrolledWindow (null, null);
@@ -49,9 +60,11 @@ namespace Doca.Widgets {
             side_scrolled_window.add (list_box);
 
             this.get_style_context ().add_class ("sidebar");
-            this.attach (title_label, 0, 0);
-            this.attach (side_scrolled_window, 0, 1, 1, 2);
+            this.attach (title_grid, 0, 0);
+            this.attach (search_bar, 0, 1);
+            this.attach (side_scrolled_window, 0, 2, 1, 2);
             this.reload ();
+
         }
 
         public void reload () {
@@ -85,6 +98,15 @@ namespace Doca.Widgets {
 
                 error (ex.message);
             }
+        }
+
+        public bool on_search_container (Gtk.ListBoxRow row){
+            var search_text = search_bar.get_text ().down ();
+
+            if (search_text in ((ContainerListRow) row).container.process.names){
+                return true;
+            }
+            return false;
         }
 
     }
