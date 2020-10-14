@@ -11,7 +11,7 @@ namespace Doca.Widgets.Components {
         public signal void on_status_changed ();
 
         public Gtk.Label title_label { get; private set; }
-        public Gtk.Button container_button { get; private set; }
+        public Button container_button { get; private set; }
         public Gtk.ModelButton duplicate_button { get; private set; }
         public Gtk.ModelButton delete_button { get; private set; }
         public Gtk.Separator menu_separator { get; private set; }
@@ -46,10 +46,12 @@ namespace Doca.Widgets.Components {
             spinner = new Gtk.Spinner ();
             spinner.get_style_context ().add_class ("spinner");
 
-            container_button = new Gtk.Button.from_icon_name (container.process.is_running ? "media-playback-stop-symbolic" : "media-playback-start-symbolic", Gtk.IconSize.MENU);
-            container_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
-            container_button.get_style_context ().add_class ("btn-container");
-            container_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Control>Return"}, "Start/Stop");
+            container_button = new Button (container.process.is_running ? "media-playback-stop-symbolic" : "media-playback-start-symbolic","Start/Stop","btn-container");
+
+            //  container_button = new Gtk.Button.from_icon_name (container.process.is_running ? "media-playback-stop-symbolic" : "media-playback-start-symbolic", Gtk.IconSize.MENU);
+            //  container_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+            //  container_button.get_style_context ().add_class ("btn-container");
+            //  container_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Control>Return"}, "Start/Stop");
             container_button.clicked.connect (container_button_clicked);
 
             duplicate_button = new Gtk.ModelButton ();

@@ -13,8 +13,10 @@ namespace Doca.Widgets {
         public Gtk.Grid title_grid { get; private set; }
         public Gtk.SearchEntry search_bar { get; private set; }
         public Gtk.ScrolledWindow side_scrolled_window { get; private set; }
+        public Button delete_all_btn { get; private set; }
+        public Button home_btn { get; private set; }
+        public Gtk.Grid toolbar { get; private set; }
         public Gtk.ListBox list_box { get; private set; }
-
 
         public IContainerService containerService { get; private set; }
 
@@ -39,8 +41,8 @@ namespace Doca.Widgets {
 
             search_bar = new Gtk.SearchEntry ();
             search_bar.placeholder_text = _("Search");
+            search_bar.get_style_context ().add_class ("search-entry");
             search_bar.hexpand = true;
-            search_bar.margin = 9;
             search_bar.search_changed.connect (() => {
                 list_box.invalidate_filter ();
             });
@@ -59,10 +61,25 @@ namespace Doca.Widgets {
             side_scrolled_window.expand = true;
             side_scrolled_window.add (list_box);
 
+            delete_all_btn = new Button ("user-trash-symbolic", _("Delete All"), "");
+            delete_all_btn.halign = Gtk.Align.END;
+            delete_all_btn.hexpand = true;
+            delete_all_btn.clicked.connect (() => {});
+
+            home_btn = new Button ("go-home-symbolic", _("Home"), "");
+            home_btn.clicked.connect (() => {});
+
+            toolbar = new Gtk.Grid ();
+            toolbar.get_style_context ().add_class ("list-box-toolbar");
+            toolbar.attach (home_btn, 0, 0, 1, 1);
+            toolbar.attach (delete_all_btn, 1, 0, 1, 1);
+
             this.get_style_context ().add_class ("sidebar");
             this.attach (title_grid, 0, 0);
             this.attach (search_bar, 0, 1);
             this.attach (side_scrolled_window, 0, 2, 1, 2);
+            this.attach (toolbar, 0, 4, 1, 2);
+
             this.reload ();
 
         }

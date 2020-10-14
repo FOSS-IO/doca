@@ -31,6 +31,7 @@ app_files = files (
 
 widget_files = files (
   'widgets/components/ContainerListRow.vala',
+  'widgets/components/Button.vala',
   'widgets/utils/Settings.vala',
   'widgets/ContainerList.vala',
   'widgets/HeaderBar.vala',

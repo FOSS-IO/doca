@@ -98,3 +98,13 @@
     background-color: transparent;
     color: #000;
 }
+
+
+.list-box-toolbar {
+    border-top: 1px solid shade (@bg_color, 0.9);
+    background: shade (@bg_color, 0.95);
+}
+
+.search-entry {
+    margin: 9px;
+}
