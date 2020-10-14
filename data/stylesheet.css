@@ -23,7 +23,7 @@
 .list-box-row {
     background-color: transparent;
     transition: background 0.3s ease;
-    margin: 0 0;
+    margin: 0px 0px;
     border: none;
 }
 
@@ -36,9 +36,38 @@
     background-color: shade (@bg_color, 0.96);
 }
 
+.list-box-row-grid {
+    margin: 0px 0px;
+}
+
 .list-box-row-label {
     /* color: red; */
     font-size: 14px;
-    margin: 5px 0;
+    margin: 5px 0px;
     font-weight: 500;
+}
+
+.status-indicator {
+    /* padding: 5px; */
+    min-height: 10px;
+    min-width: 10px;
+    margin: 15px 5px;
+    border-radius: 100%;
+}
+
+.status-indicator-up {
+    background-color: @LIME_500;
+}
+
+.status-indicator-down {
+    background-color: @STRAWBERRY_500;
+}
+
+.btn-container:focus {
+    background:transparent;
+    /* background-color: red; */
+}
+
+.btn-container:active {
+    background:transparent;
 }
