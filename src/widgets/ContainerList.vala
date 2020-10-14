@@ -64,7 +64,25 @@ namespace Doca.Widgets {
             delete_all_btn = new Button ("user-trash-symbolic", _("Delete All"), "");
             delete_all_btn.halign = Gtk.Align.END;
             delete_all_btn.hexpand = true;
-            delete_all_btn.clicked.connect (() => {});
+            delete_all_btn.clicked.connect (() => {
+                var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("Are you sure you want to delete all?"),
+                    _("All containers will be deleted and you won’t be able to recover it."),
+                    "dialog-warning",
+                    Gtk.ButtonsType.CANCEL
+                );
+                message_dialog.transient_for = window;
+
+                var suggested_button = new Gtk.Button.with_label (_("Yes, Delete All!"));
+                suggested_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+                message_dialog.add_action_widget (suggested_button, Gtk.ResponseType.ACCEPT);
+
+                message_dialog.show_all ();
+                if (message_dialog.run () == Gtk.ResponseType.ACCEPT) {
+                    //Do something
+                }
+                message_dialog.destroy ();
+            });
 
             home_btn = new Button ("go-home-symbolic", _("Home"), "");
             home_btn.clicked.connect (() => {});

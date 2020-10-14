@@ -46,12 +46,11 @@ namespace Doca.Widgets.Components {
             spinner = new Gtk.Spinner ();
             spinner.get_style_context ().add_class ("spinner");
 
-            container_button = new Button (container.process.is_running ? "media-playback-stop-symbolic" : "media-playback-start-symbolic","Start/Stop","btn-container");
-
-            //  container_button = new Gtk.Button.from_icon_name (container.process.is_running ? "media-playback-stop-symbolic" : "media-playback-start-symbolic", Gtk.IconSize.MENU);
-            //  container_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
-            //  container_button.get_style_context ().add_class ("btn-container");
-            //  container_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Control>Return"}, "Start/Stop");
+            container_button = new Button (
+                container.process.is_running ? "media-playback-stop-symbolic" : "media-playback-start-symbolic",
+                "Start/Stop",
+                "btn-container"
+            );
             container_button.clicked.connect (container_button_clicked);
 
             duplicate_button = new Gtk.ModelButton ();
