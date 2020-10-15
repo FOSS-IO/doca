@@ -1,15 +1,15 @@
-using Doca.Widgets;
+using Doca.Widget;
 
 namespace Doca {
 
     public const string PROJECT_ID = "com.github.foss-io.doca";
     public const string PROJECT_NAME = "Doca";
-    public Utils.Settings settings;
+    public Util.Settings settings;
 
     public class Application : Gtk.Application {
 
         construct {
-            settings = new Utils.Settings ();
+            settings = new Util.Settings ();
         }
 
         public Application () {

@@ -1,4 +1,4 @@
-namespace Doca.Widgets.Components {
+namespace Doca.Widget.Component {
 
     public class Dialog : Granite.MessageDialog {
         public Gtk.Button suggested_button { get; set; }

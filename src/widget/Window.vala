@@ -1,6 +1,6 @@
-using Doca.Widgets.Components;
+using Doca.Widget.Component;
 
-namespace Doca.Widgets {
+namespace Doca.Widget {
 
     public class Window : Gtk.ApplicationWindow {
 

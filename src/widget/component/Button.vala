@@ -1,4 +1,4 @@
-namespace Doca.Widgets.Components {
+namespace Doca.Widget.Component {
 
     public class Button : Gtk.Button {
         public Button (string icon, string tooltip, string css_class) {

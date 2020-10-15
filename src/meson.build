@@ -30,13 +30,13 @@ app_files = files (
 )
 
 widget_files = files (
-  'widgets/components/ContainerListRow.vala',
-  'widgets/components/Button.vala',
-  'widgets/components/HeaderBar.vala',
-  'widgets/components/Dialog.vala',
-  'widgets/utils/Settings.vala',
-  'widgets/ContainerListView.vala',
-  'widgets/Paned.vala',
-  'widgets/Welcome.vala',
-  'widgets/Window.vala'
+  'widget/component/ContainerListRow.vala',
+  'widget/component/Button.vala',
+  'widget/component/HeaderBar.vala',
+  'widget/component/Dialog.vala',
+  'widget/util/Settings.vala',
+  'widget/ContainerListView.vala',
+  'widget/Paned.vala',
+  'widget/Welcome.vala',
+  'widget/Window.vala'
 )

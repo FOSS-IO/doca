@@ -2,7 +2,7 @@ using Doca.Entity;
 using Doca.Service;
 using Doca.Service.Adapter;
 
-namespace Doca.Widgets.Components {
+namespace Doca.Widget.Component {
 
     public class ContainerListRow : Gtk.ListBoxRow {
 

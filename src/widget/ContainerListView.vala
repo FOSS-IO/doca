@@ -2,9 +2,9 @@ using Doca.Entity;
 using Doca.Service;
 using Doca.Service.Adapter;
 using Doca.Service.Exception;
-using Doca.Widgets.Components;
+using Doca.Widget.Component;
 
-namespace Doca.Widgets {
+namespace Doca.Widget {
 
     public class ContainerListView : Gtk.Grid {
 
