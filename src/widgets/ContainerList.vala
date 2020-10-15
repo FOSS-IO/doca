@@ -15,6 +15,7 @@ namespace Doca.Widgets {
         public Gtk.ListBox list_box { get; private set; }
 
         public IContainerService containerService { get; private set; }
+        public List<Entity.Container> containers { get; private owned set; }
 
         public ContainerList (Window main_window) {
             Object (
@@ -51,40 +52,46 @@ namespace Doca.Widgets {
             this.get_style_context ().add_class ("sidebar");
             this.attach (title_label, 0, 0);
             this.attach (side_scrolled_window, 0, 1, 1, 2);
-            this.reload ();
+            this.load_containers ();
         }
 
         public void reload () {
-            try {
-                var containers = containerService.list_all_containers ();
+            list_box.foreach ((element) => {
+                list_box.remove (element);
+            });
 
-                list_box.foreach ((element) => {
-                    list_box.remove (element);
-                });
+            containers.foreach ((container) => {
+                var container_list_row = new ContainerListRow (container);
+                container_list_row.on_start_container.connect (containerService.start_image);
+                container_list_row.on_stop_container.connect (containerService.stop_image);
+                container_list_row.on_status_changed.connect (this.reload);
 
-                containers.foreach ((container) => {
-                    var container_list_row = new ContainerListRow (container);
-                    container_list_row.on_start_container.connect (containerService.start_image);
-                    container_list_row.on_stop_container.connect (containerService.stop_image);
-                    container_list_row.on_status_changed.connect (this.reload);
+                list_box.add (container_list_row);
+            });
 
-                    list_box.add (container_list_row);
-                });
+            list_box.show_all ();
+        }
 
-                list_box.show_all ();
-            } catch (ContainerError ex) {
-                if (ex is ContainerError.DAEMON_NOT_INSTALLED) {
-                    // DAEMON_NOT_INSTALLED
-                } else if (ex is ContainerError.DAEMON_NOT_ENABLED) {
-                    // DAEMON_NOT_ENABLED
-                } else if (ex is ContainerError.DAEMON_NOT_ACTIVE) {
-                    // DAEMON_NOT_ACTIVE
-                } else if (ex is ContainerError.CURRENT_USER_NOT_IN_DOCKER_GROUP) {
-                    // CURRENT_USER_NOT_IN_DOCKER_GROUP
+        private void load_containers () {
+            containerService.list_all_containers.begin ((obj, res) => {
+                try {
+                    containers = containerService.list_all_containers.end (res);
+                } catch (ContainerError ex) {
+                    if (ex is ContainerError.DAEMON_NOT_INSTALLED) {
+                        // DAEMON_NOT_INSTALLED
+                    } else if (ex is ContainerError.DAEMON_NOT_ENABLED) {
+                        // DAEMON_NOT_ENABLED
+                    } else if (ex is ContainerError.DAEMON_NOT_ACTIVE) {
+                        // DAEMON_NOT_ACTIVE
+                    } else if (ex is ContainerError.CURRENT_USER_NOT_IN_DOCKER_GROUP) {
+                        // CURRENT_USER_NOT_IN_DOCKER_GROUP
+                    }
+
+                    error (ex.message);
                 }
 
-                error (ex.message);
-            }
+                reload ();
+            });
         }
 
     }

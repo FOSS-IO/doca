@@ -13,8 +13,8 @@ namespace Doca.Service {
             distributionInfo = new DistributionInfo ();
         }
 
-        public new Distribution get_distro () {
-            return distributionInfo.get_distro ();
+        public async new Distribution get_distro () {
+            return yield distributionInfo.get_distro ();
         }
 
     }

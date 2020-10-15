@@ -5,7 +5,7 @@ namespace Doca.DockerApi {
 
     public class DockerEngineApi : Object, IDockerEngineApi {
 
-        public new bool is_daemon_installed () {
+        public async new bool is_daemon_installed () {
             string stdout;
 
             try {
@@ -17,7 +17,7 @@ namespace Doca.DockerApi {
             }
         }
 
-        public new bool is_daemon_enabled () {
+        public async new bool is_daemon_enabled () {
             string stdout;
 
             try {
@@ -29,7 +29,7 @@ namespace Doca.DockerApi {
             }
         }
 
-        public new bool is_daemon_active () {
+        public async new bool is_daemon_active () {
             string stdout;
 
             try {
@@ -41,7 +41,7 @@ namespace Doca.DockerApi {
             }
         }
 
-        public new bool is_current_user_in_docker_group () {
+        public async new bool is_current_user_in_docker_group () {
             string stdout;
 
             try {
@@ -54,7 +54,7 @@ namespace Doca.DockerApi {
             }
         }
 
-        public new void install_docker () {
+        public async new void install_docker () {
             try {
                 GLib.Process.spawn_command_line_sync ("sudo pacman -S --noconfirm docker-compose");
             } catch (SpawnError e) {
@@ -62,7 +62,7 @@ namespace Doca.DockerApi {
             }
         }
 
-        public new List<Image> list_all_images () {
+        public async new List<Image> list_all_images () {
             string stdout;
             List<Image> images = new List<Image> ();
 
@@ -90,7 +90,7 @@ namespace Doca.DockerApi {
             return images;
         }
 
-        public new List<Entity.Process> list_all_processes () {
+        public async new List<Entity.Process> list_all_processes () {
             string stdout;
             List<Entity.Process> processes = new List<Entity.Process> ();
 
@@ -123,7 +123,7 @@ namespace Doca.DockerApi {
             return processes;
         }
 
-        public new List<Stats> list_all_stats () {
+        public async new List<Stats> list_all_stats () {
             string stdout;
             List<Stats> stats = new List<Stats> ();
 
@@ -153,7 +153,7 @@ namespace Doca.DockerApi {
             return stats;
         }
 
-        public new void start_image (string id) {
+        public async new void start_image (string id) {
             try {
                 GLib.Process.spawn_command_line_sync (@"docker start $id");
             } catch (SpawnError e) {
@@ -161,7 +161,7 @@ namespace Doca.DockerApi {
             }
         }
 
-        public new void stop_image (string id) {
+        public async new void stop_image (string id) {
             try {
                 GLib.Process.spawn_command_line_sync (@"docker stop $id");
             } catch (SpawnError e) {
