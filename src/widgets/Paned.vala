@@ -4,7 +4,7 @@ namespace Doca.Widgets {
 
         public weak Window window { get; construct; }
         public Welcome welcome { get; private set; }
-        public ContainerList container_list { get; private set; }
+        public ContainerListView container_list { get; private set; }
         public Gtk.Stack sidebar_stack { get; private set; }
         public Gtk.Stack main_stack { get; private set; }
         public Gtk.Grid main_grid { get; private set; }
@@ -15,7 +15,7 @@ namespace Doca.Widgets {
                 window: main_window
             );
 
-            container_list = new ContainerList (window);
+            container_list = new ContainerListView (window);
 
             welcome = new Welcome (window);
 

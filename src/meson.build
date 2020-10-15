@@ -33,8 +33,9 @@ widget_files = files (
   'widgets/components/ContainerListRow.vala',
   'widgets/components/Button.vala',
   'widgets/components/HeaderBar.vala',
+  'widgets/components/Dialog.vala',
   'widgets/utils/Settings.vala',
-  'widgets/ContainerList.vala',
+  'widgets/ContainerListView.vala',
   'widgets/Paned.vala',
   'widgets/Welcome.vala',
   'widgets/Window.vala'

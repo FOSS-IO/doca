@@ -6,12 +6,12 @@ namespace Doca.Widgets.Components {
 
             image.margin = 3;
 
-            get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
-            get_style_context ().add_class (css_class);
+            this.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+            this.get_style_context ().add_class (css_class);
 
-            set_tooltip_text (tooltip);
+            this.set_tooltip_text (tooltip);
 
-            add (image);
+            this.add (image);
         }
     }
 }
