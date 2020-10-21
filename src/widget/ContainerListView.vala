@@ -97,8 +97,7 @@ namespace Doca.Widget {
             this.attach (side_scrolled_window, 0, 2, 1, 2);
             this.attach (toolbar, 0, 4, 1, 2);
 
-            this.reload ();
-
+            this.load_containers ();
         }
 
         public void reload () {
@@ -108,8 +107,8 @@ namespace Doca.Widget {
 
             containers.foreach ((container) => {
                 var container_list_row = new ContainerListRow (container);
-                container_list_row.on_start_container.connect (containerService.start_image);
-                container_list_row.on_stop_container.connect (containerService.stop_image);
+                container_list_row.on_start_container.connect (this.on_start_container);
+                container_list_row.on_stop_container.connect (this.on_stop_container);
                 container_list_row.on_status_changed.connect (this.reload);
 
                 list_box.add (container_list_row);
@@ -118,10 +117,10 @@ namespace Doca.Widget {
             list_box.show_all ();
         }
 
-        private void load_containers () {
-            containerService.list_all_containers.begin ((obj, res) => {
+        public void load_containers () {
+            Idle.add (()=> {
                 try {
-                    containers = containerService.list_all_containers.end (res);
+                    containers = containerService.list_all_containers ();
                 } catch (ContainerError ex) {
                     if (ex is ContainerError.DAEMON_NOT_INSTALLED) {
                         // DAEMON_NOT_INSTALLED
@@ -137,20 +136,33 @@ namespace Doca.Widget {
                 }
 
                 reload ();
+                return false;
             });
         }
 
-        public bool on_search_container (Gtk.ListBoxRow row) {
+        public void on_start_container (string id) {
+            Idle.add (()=> {
+                containerService.start_image (id);
+                load_containers ();
+                return false;
+            });
+        }
+
+        public void on_stop_container (string id) {
+            Idle.add (() => {
+                containerService.stop_image (id);
+                load_containers ();
+                return false;
+            });
+        }
+
+        private bool on_search_container (Gtk.ListBoxRow row) {
             var search_text = search_bar.get_text ().down ();
 
             if (search_text in ((ContainerListRow) row).container.process.names){
                 return true;
             }
             return false;
-        }
-
-        public void on_selected_row (Gtk.ListBoxRow row) {
-
         }
 
     }

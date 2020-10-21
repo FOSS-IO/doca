@@ -5,7 +5,7 @@ namespace Doca.Os {
 
     public class DistributionInfo : Object, IDistributionInfo {
 
-        public async new Distribution get_distro () {
+        public new Distribution get_distro () {
             string stdout;
 
             try {
