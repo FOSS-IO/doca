@@ -32,8 +32,16 @@
     border: none;
 }
 
+.list-box-row:selected .btn-menu image {
+	color: @fg_color;
+}
+
 .list-box-row:hover {
     background-color: shade (@bg_color, 0.96);
+}
+
+.list-box-row:hover .btn-menu {
+    opacity: 1;
 }
 
 .list-box-row-grid {
@@ -63,6 +71,9 @@
     background-color: @STRAWBERRY_500;
 }
 
+.btn-container {
+    background: transparent;
+}
 .btn-container:focus {
     background:transparent;
     /* background-color: red; */
@@ -70,4 +81,30 @@
 
 .btn-container:active {
     background:transparent;
+}
+
+.spinner {
+    margin: 0 5px;
+}
+
+.btn-menu {
+    background: transparent;
+    opacity: 0;
+}
+
+.btn-menu:active,
+.btn-menu:focus
+.btn-menu:selected {
+    background-color: transparent;
+    color: #000;
+}
+
+
+.list-box-toolbar {
+    border-top: 1px solid shade (@bg_color, 0.9);
+    background: shade (@bg_color, 0.95);
+}
+
+.search-entry {
+    margin: 9px;
 }

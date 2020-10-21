@@ -1,14 +1,13 @@
-namespace Doca.Widgets {
+namespace Doca.Widget {
 
     public class Paned : Gtk.Paned {
 
         public weak Window window { get; construct; }
         public Welcome welcome { get; private set; }
-        public ContainerList container_list { get; private set; }
+        public ContainerListView container_list { get; private set; }
         public Gtk.Stack sidebar_stack { get; private set; }
         public Gtk.Stack main_stack { get; private set; }
         public Gtk.Grid main_grid { get; private set; }
-        //  public Gtk.Image new_image { get; private set; }
 
         public Paned (Window main_window) {
             Object (
@@ -16,16 +15,13 @@ namespace Doca.Widgets {
                 window: main_window
             );
 
-            container_list = new ContainerList (window);
+            container_list = new ContainerListView (window);
 
             welcome = new Welcome (window);
-
-            //  new_image = new Gtk.Image.from_icon_name ("address-book-new", Gtk.IconSize.BUTTON);
 
             main_grid = new Gtk.Grid ();
             main_grid.orientation = Gtk.Orientation.VERTICAL;
             main_grid.attach (welcome, 0, 1);
-            //  main_grid.attach (new_image, 0, 0);
 
             sidebar_stack = new Gtk.Stack ();
             sidebar_stack.add_named(container_list, "list");

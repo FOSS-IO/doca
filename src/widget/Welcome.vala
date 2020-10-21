@@ -1,4 +1,4 @@
-namespace Doca.Widgets {
+namespace Doca.Widget {
 
     public class Welcome : Granite.Widgets.Welcome {
 

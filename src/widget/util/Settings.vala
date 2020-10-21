@@ -1,4 +1,4 @@
-namespace Doca.Widgets.Utils {
+namespace Doca.Widget.Util {
 
     public class Settings : GLib.Settings {
 

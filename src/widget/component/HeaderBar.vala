@@ -1,4 +1,4 @@
-namespace Doca.Widgets {
+namespace Doca.Widget.Component {
 
     public class HeaderBar : Gtk.HeaderBar {
 
