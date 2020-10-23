@@ -46,12 +46,15 @@ namespace Doca.Widget.Component {
             title_label.margin_end = 9;
             title_label.hexpand = true;
 
-            string ports = container.process.ports.split (":")[1].split ("/")[0].replace ("->",":");
+            //  string ports = container.process.ports.split (":")[1].split ("/")[0].replace ("->",":");
 
-            ports_label = new Gtk.Label (container.process.ports != "" ? ports : "");
+            //  ports_label = new Gtk.Label (container.process.ports != "" ? ports : "");
+            ports_label = new Gtk.Label (container.process.ports);
             ports_label.get_style_context ().add_class ("list-box-row-label");
             ports_label.get_style_context ().add_class ("list-box-row-label-info");
             ports_label.halign = Gtk.Align.START;
+
+
 
             status_label = new Gtk.Label (container.process.status.replace ("(0)", ""));
             status_label.get_style_context ().add_class ("list-box-row-label");
