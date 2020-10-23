@@ -4,32 +4,36 @@
     /* background: red; */
 }
 
-.sidebar-title {
+/* .sidebar-title {
     border-bottom: 1px solid shade (@bg_color, 0.9);
     background: shade (@bg_color, 0.95);
-}
+} */
+
 
 .sidebar-title-text {
     font-weight: 700;
 	/* color: @STRAWBERRY_900; */
-	margin: 5px;
-	font-size: 14px;
+    margin: 30px 20px 10px 20px;
+    font-size: 24px;
+    font-weight: 400;
 }
 
 .list-box {
     background-color: transparent;
+    padding: 0 20px;
 }
 
 .list-box-row {
     background-color: transparent;
     transition: background 0.3s ease;
     margin: 0px 0px;
-    border: none;
+    border-bottom: 1px solid shade (@bg_color, 0.9);
+
 }
 
 .list-box-row:selected {
-    background-color: transparent;
-    border: none;
+    background: shade (@bg_color, 0.96);
+    border: 1px solid transparent;
 }
 
 .list-box-row:selected .btn-menu image {
@@ -37,7 +41,7 @@
 }
 
 .list-box-row:hover {
-    background-color: shade (@bg_color, 0.96);
+    background-color: shade (@bg_color, 0.98);
 }
 
 .list-box-row:hover .btn-menu {
@@ -53,6 +57,12 @@
     font-size: 14px;
     margin: 5px 0px;
     font-weight: 500;
+}
+
+.list-box-row-label-info {
+    opacity: 0.7;
+	background: purple;
+	border:1px solid;
 }
 
 .status-indicator {
@@ -71,15 +81,17 @@
     background-color: @STRAWBERRY_500;
 }
 
-.btn-container {
+.btn-container, .btn-terminal {
     background: transparent;
+    height: 20px;
+    width: 20px;
 }
-.btn-container:focus {
+.btn-container:focus, .btn-terminal:focus {
     background:transparent;
     /* background-color: red; */
 }
 
-.btn-container:active {
+.btn-container:active, .btn-terminal:active {
     background:transparent;
 }
 

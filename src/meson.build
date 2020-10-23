@@ -38,5 +38,6 @@ widget_files = files (
   'widget/ContainerListView.vala',
   'widget/Paned.vala',
   'widget/Welcome.vala',
-  'widget/Window.vala'
+  'widget/Window.vala',
+  'widget/Overlay.vala'
 )

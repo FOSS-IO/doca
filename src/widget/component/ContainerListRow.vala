@@ -9,9 +9,13 @@ namespace Doca.Widget.Component {
         public signal void on_start_container (string container_id);
         public signal void on_stop_container (string container_id);
         public signal void on_status_changed ();
+        public signal void on_delete_container (string container_id);
 
         public Gtk.Label title_label { get; private set; }
+        public Gtk.Label status_label { get; private set; }
+        public Gtk.Label ports_label { get; private set; }
         public Button container_button { get; private set; }
+        public Button terminal_button { get; private set; }
         public Gtk.ModelButton duplicate_button { get; private set; }
         public Gtk.ModelButton delete_button { get; private set; }
         public Gtk.Separator menu_separator { get; private set; }
@@ -40,8 +44,23 @@ namespace Doca.Widget.Component {
             title_label.halign = Gtk.Align.START;
             title_label.ellipsize = Pango.EllipsizeMode.END;
             title_label.margin_end = 9;
-            title_label.set_line_wrap (true);
             title_label.hexpand = true;
+
+            string ports = container.process.ports.split (":")[1].split ("/")[0].replace ("->",":");
+
+            ports_label = new Gtk.Label (container.process.ports != "" ? ports : "");
+            ports_label.get_style_context ().add_class ("list-box-row-label");
+            ports_label.get_style_context ().add_class ("list-box-row-label-info");
+            ports_label.halign = Gtk.Align.START;
+
+            status_label = new Gtk.Label (container.process.status.replace ("(0)", ""));
+            status_label.get_style_context ().add_class ("list-box-row-label");
+            status_label.get_style_context ().add_class ("list-box-row-label-info");
+            status_label.halign = Gtk.Align.START;
+            status_label.ellipsize = Pango.EllipsizeMode.END;
+
+
+
 
             spinner = new Gtk.Spinner ();
             spinner.get_style_context ().add_class ("spinner");
@@ -51,6 +70,14 @@ namespace Doca.Widget.Component {
                 "Start/Stop",
                 "btn-container"
             );
+
+            terminal_button = new Button (
+                "utilities-terminal",
+                "See Logs",
+                "btn-terminal"
+            );
+
+
             container_button.clicked.connect (container_button_clicked);
 
             duplicate_button = new Gtk.ModelButton ();
@@ -58,6 +85,9 @@ namespace Doca.Widget.Component {
 
             delete_button = new Gtk.ModelButton ();
             delete_button.text = _("Delete Container");
+            delete_button.clicked.connect (() => {
+                on_delete_container(this.container.process.id);
+            });
 
             menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
             menu_separator.margin_top = 6;
@@ -96,9 +126,12 @@ namespace Doca.Widget.Component {
             main_grid.margin = 3;
             main_grid.attach (status_indicator_grid, 0, 0, 1, 1);
             main_grid.attach (title_label, 1, 0, 1, 1);
-            main_grid.attach (spinner, 2, 0, 1, 1);
-            main_grid.attach (container_button, 3, 0, 1, 1);
-            main_grid.attach (menu_button, 4, 0, 1, 1);
+            main_grid.attach (ports_label, 2, 0, 1, 1);
+            main_grid.attach (status_label, 3, 0, 1, 1);
+            //  main_grid.attach (spinner, 2, 0, 1, 1);
+            main_grid.attach (terminal_button, 4, 0, 1, 1);
+            main_grid.attach (container_button, 5, 0, 1, 1);
+            main_grid.attach (menu_button, 6, 0, 1, 1);
 
             this.get_style_context ().add_class ("list-box-row");
             this.expand = true;
@@ -124,6 +157,8 @@ namespace Doca.Widget.Component {
 
             on_status_changed ();
         }
+
+
 
     }
 

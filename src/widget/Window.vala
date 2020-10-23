@@ -13,12 +13,24 @@ namespace Doca.Widget {
                 application: app
             );
 
+            var overlay = new Gtk.Overlay ();
+
+            //  var overlaybar = new Granite.Widgets.OverlayBar (overlay);
+            //  overlaybar.label = "Hover the OverlayBar to change its position";
+            //  overlaybar.active = true;
+
+            //  overlaybar.destroy ();
+
             css_provider = new Gtk.CssProvider ();
             css_provider.load_from_resource ("/com/github/foss-io/doca/stylesheet.css");
 
             header_bar = new HeaderBar (this);
+            margin = 16;
 
-            paned = new Paned (this);
+            //  paned = new Paned (this);
+            var container_list = new ContainerListView (this);
+
+            overlay.add (container_list);
 
             Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = settings.dark_theme;
             Gtk.StyleContext.add_provider_for_screen (
@@ -30,7 +42,7 @@ namespace Doca.Widget {
             this.move (settings.pos_x, settings.pos_y);
             this.resize (settings.window_width, settings.window_height);
             this.set_titlebar (header_bar);
-            this.add (paned);
+            this.add (overlay);
             this.delete_event.connect (before_destroy);
             this.show_all ();
         }
